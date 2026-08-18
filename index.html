@@ -90,6 +90,22 @@
     .license-modal__close { position:absolute; z-index:2; top:0; right:0; width:42px; height:42px; display:grid; place-items:center; border:0; border-radius:50%; background:#fff; color:var(--ink); font-size:25px; cursor:pointer; transform:translate(15px,-15px); }
     .license-modal__paper { height:min(calc(100svh - 76px),850px); max-width:100%; padding:clamp(15px,2.5vw,30px); display:grid; place-items:center; background:#fff; box-shadow:0 22px 60px rgba(0,0,0,.28); }
     .license-modal__paper .license__document { height:100%; max-width:100%; }
+    .conditions { padding:116px 24px 126px; background:#fff; }
+    .conditions__inner { width:min(1200px,100%); margin:0 auto; }
+    .conditions__title { margin:0 0 24px; font:400 56px/1.06 Prata,Georgia,serif; letter-spacing:-.045em; }
+    .conditions__intro { max-width:1080px; margin:0 0 46px; color:#5f4a48; font-size:18px; line-height:1.52; }
+    .conditions__grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .condition { min-height:250px; padding:29px; border:1px solid rgba(176,108,106,.16); border-radius:5px; background:#fff; box-shadow:0 9px 27px rgba(88,55,51,.06); }
+    .condition__icon { width:61px; height:61px; display:grid; place-items:center; margin-bottom:27px; border:1px solid #eadcd6; border-radius:50%; background:#f8edeb; color:var(--deep-rose); }
+    .condition__icon svg { width:29px; height:29px; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+    .condition h3 { margin:0 0 14px; font:400 24px/1.22 Prata,Georgia,serif; letter-spacing:-.025em; }
+    .condition p { margin:0; color:#756361; font-size:14px; line-height:1.55; }
+    .conditions__video { min-height:250px; position:relative; overflow:hidden; display:grid; place-items:center; border-radius:5px; background:linear-gradient(145deg,#513542,#241b27); }
+    .conditions__video::before { content:""; position:absolute; width:230px; height:230px; border-radius:50%; background:radial-gradient(circle,#f1b8d3 0 2%,#c97b9f 3% 15%,transparent 16%); opacity:.48; }
+    .conditions__video::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(21,15,20,.62),transparent 60%); }
+    .video-placeholder { position:relative; z-index:1; width:75px; height:75px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.65); border-radius:50%; color:#fff; background:rgba(255,255,255,.12); }
+    .video-placeholder::before { content:""; margin-left:5px; border-top:11px solid transparent; border-bottom:11px solid transparent; border-left:17px solid currentColor; }
+    .video-placeholder span { position:absolute; top:calc(100% + 17px); white-space:nowrap; color:#fff; font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
     @media (max-width:900px) {
       .hero { min-height:auto; }
       .hero__image { inset:0; opacity:.25; background-position:64% center; }
@@ -133,6 +149,14 @@
       .license-modal__dialog { max-height:calc(100svh - 36px); }
       .license-modal__paper { height:calc(100svh - 58px); padding:12px; }
       .license-modal__close { transform:translate(7px,-7px); }
+      .conditions { padding:72px 20px 78px; }
+      .conditions__title { font-size:38px; }
+      .conditions__intro { margin-bottom:28px; font-size:15px; }
+      .conditions__grid { grid-template-columns:1fr; gap:12px; }
+      .condition, .conditions__video { min-height:220px; padding:23px; }
+      .condition__icon { margin-bottom:20px; }
+      .condition h3 { font-size:20px; }
+      .condition p { font-size:13px; }
     }
   </style>
 </head>
@@ -222,6 +246,20 @@
           <button class="license__paper" type="button" aria-label="Открыть приложение к лицензии"><div class="license__document license__compact"><span class="license__qr"></span><p class="license__doc-title">Приложение<br>к лицензии</p><p class="license__doc-subtitle">Перечень разрешённых видов медицинской деятельности</p><span class="license__stamp"></span></div></button>
           <p class="license__name">Лицензия на медицинскую деятельность — приложение</p>
         </article>
+      </div>
+    </div>
+  </section>
+  <section class="conditions" aria-labelledby="conditions-title">
+    <div class="conditions__inner">
+      <h2 class="conditions__title" id="conditions-title">Условия в клинике</h2>
+      <p class="conditions__intro">Мы понимаем, насколько важны условия пребывания в стационаре для каждого пациента. После операции человеку особенно важны забота, спокойствие и атмосфера, которая способствует физическому и эмоциональному восстановлению.</p>
+      <div class="conditions__grid">
+        <article class="condition"><div class="condition__icon"><svg viewBox="0 0 32 32"><circle cx="16" cy="10" r="4"/><path d="M8 27c.6-5.3 3.3-8 8-8s7.4 2.7 8 8M10 21v5M22 21v5M13 15v4M19 15v4"/></svg></div><h3>Внимательный персонал 24/7</h3><p>Наши медсёстры и врачи всегда рядом: готовы помочь, ответить на вопросы и просто поддержать разговор.</p></article>
+        <article class="condition"><div class="condition__icon"><svg viewBox="0 0 32 32"><rect x="10" y="5" width="12" height="9" rx="1"/><path d="M12 14v12h8V14M6 11v5a5 5 0 0 0 5 5h1M26 11v5a5 5 0 0 1-5 5h-1M16 8v3M9 26h14"/></svg></div><h3>Современное оснащение</h3><p>Комфортабельный стационар европейского уровня с оборудованием, отвечающим всем требованиям эстетической медицины.</p></article>
+        <article class="condition"><div class="condition__icon"><svg viewBox="0 0 32 32"><path d="M6 21h20M9 21V11h14v10M12 11V8h8v3M8 25h16M10 21v4M22 21v4M4 16h5M23 16h5"/></svg></div><h3>Комфортабельные палаты</h3><p>1- и 2-местные палаты с мониторингом состояния, санузлом, удобной кроватью, Wi‑Fi, TV и кондиционером.</p></article>
+        <article class="condition"><div class="condition__icon"><svg viewBox="0 0 32 32"><path d="m9 20 11-11 4 4-11 11-5 1zM17 12l3 3M8 24l-2 2M23 9l1-1"/></svg></div><h3>Безопасная анестезия</h3><p>Применяем метод медикаментозного сна. Препараты быстро выводятся и не вызывают неприятных ощущений при пробуждении.</p></article>
+        <div class="conditions__video" aria-label="Заглушка видео о клинике"><div class="video-placeholder"><span>Видео о клинике</span></div></div>
+        <article class="condition"><div class="condition__icon"><svg viewBox="0 0 32 32"><path d="M10 6v20M15 6v20M8 6h4M8 26h4M18 6v20M23 6v20M17 6h7M17 26h7M12 9h4M12 14h4M12 19h4"/></svg></div><h3>Вкусное и полезное питание</h3><p>Всё меню состоит из органических продуктов, производимых на собственной ферме M2.</p></article>
       </div>
     </div>
   </section>
