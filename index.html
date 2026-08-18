@@ -127,6 +127,26 @@
     .about__gallery { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:18px; }
     .about__gallery figure { height:155px; position:relative; overflow:hidden; margin:0; }
     .about__gallery figcaption { position:absolute; inset:auto 0 0; padding:27px 14px 13px; color:#fff; background:linear-gradient(transparent,rgba(30,20,18,.68)); font-size:11px; }
+    .media { padding:116px 24px 126px; background:#f2e9e7; }
+    .media__inner { width:min(1200px,100%); margin:0 auto; }
+    .media__title { margin:0 0 42px; font:400 56px/1.06 Prata,Georgia,serif; letter-spacing:-.045em; }
+    .media__channels { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+    .media-card { aspect-ratio:1.36; position:relative; display:flex; flex-direction:column; justify-content:space-between; padding:24px; overflow:hidden; border-radius:5px; color:#fff; }
+    .media-card--one { background:#07509a; } .media-card--ntv { background:#2fa924; } .media-card--tvc { background:#ec232b; }
+    .media-card__logo { align-self:center; margin-top:8px; font:700 clamp(34px,4.2vw,58px)/.8 Arial,sans-serif; letter-spacing:-.12em; text-shadow:0 2px 4px rgba(0,0,0,.14); }
+    .media-card--one .media-card__logo { font:italic 700 clamp(60px,7vw,92px)/.7 Arial,sans-serif; letter-spacing:-.25em; transform:rotate(-9deg); }
+    .media-card__meta { margin:0; font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; opacity:.85; }
+    .media-card__program { margin:8px 0 0; font:400 18px/1.12 Prata,Georgia,serif; }
+    .press { padding:116px 24px 126px; background:#fff; }
+    .press__inner { width:min(1200px,100%); margin:0 auto; }
+    .press__head { display:flex; justify-content:space-between; align-items:end; gap:30px; margin-bottom:42px; }
+    .press__title { margin:0; font:400 56px/1.06 Prata,Georgia,serif; letter-spacing:-.045em; }
+    .press__intro { max-width:260px; margin:0 0 4px; color:#7a6461; font-size:13px; line-height:1.5; }
+    .press__grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+    .press-card { min-width:0; padding:18px 18px 21px; border:1px solid rgba(176,108,106,.14); border-radius:5px; box-shadow:0 9px 26px rgba(88,55,51,.06); }
+    .press-card__cover { height:275px; display:grid; place-items:center; overflow:hidden; background:#f7f3f1; }
+    .press-card__cover img { width:100%; height:100%; object-fit:contain; mix-blend-mode:multiply; }
+    .press-card h3 { margin:17px 0 0; font:400 16px/1.4 Prata,Georgia,serif; letter-spacing:-.015em; }
     @media (max-width:900px) {
       .hero { min-height:auto; }
       .hero__image { inset:0; opacity:.25; background-position:64% center; }
@@ -190,6 +210,16 @@
       .about__gallery { gap:8px; margin-top:12px; }
       .about__gallery figure { height:105px; }
       .about__gallery figcaption { padding:20px 8px 8px; font-size:9px; }
+      .media, .press { padding:72px 20px 78px; }
+      .media__title, .press__title { margin-bottom:28px; font-size:38px; }
+      .media__channels, .press__grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+      .media-card { padding:16px; }
+      .media-card__program { font-size:15px; }
+      .press__head { display:block; margin-bottom:28px; }
+      .press__intro { margin-top:13px; }
+      .press-card { padding:12px; }
+      .press-card__cover { height:205px; }
+      .press-card h3 { margin:12px 0 0; font-size:13px; }
     }
   </style>
 </head>
@@ -321,6 +351,28 @@
         <figure><img src="assets/clinic/ward.png" alt="Палата стационара" /><figcaption>Комфортные палаты</figcaption></figure>
         <figure><img src="assets/clinic/operating-room.png" alt="Операционная клиники" /><figcaption>Современная операционная</figcaption></figure>
         <figure><img src="assets/clinic/procedure.png" alt="Процедурный кабинет" /><figcaption>Аппаратная косметология</figcaption></figure>
+      </div>
+    </div>
+  </section>
+  <section class="media" aria-labelledby="media-title">
+    <div class="media__inner">
+      <h2 class="media__title" id="media-title">Мы в СМИ</h2>
+      <div class="media__channels">
+        <article class="media-card media-card--one"><div class="media-card__logo">1</div><div><p class="media-card__meta">Программа</p><p class="media-card__program">Здоровье</p></div></article>
+        <article class="media-card media-card--ntv"><div class="media-card__logo">НТВ</div><div><p class="media-card__meta">Программа</p><p class="media-card__program">Красота по‑русски №1</p></div></article>
+        <article class="media-card media-card--ntv"><div class="media-card__logo">НТВ</div><div><p class="media-card__meta">Программа</p><p class="media-card__program">Красота по‑русски №2</p></div></article>
+        <article class="media-card media-card--tvc"><div class="media-card__logo">ТВЦ</div><div><p class="media-card__meta">Программа</p><p class="media-card__program">Доктор И</p></div></article>
+      </div>
+    </div>
+  </section>
+  <section class="press" aria-labelledby="press-title">
+    <div class="press__inner">
+      <div class="press__head"><h2 class="press__title" id="press-title">Пресса о нас</h2><p class="press__intro">Публикации специалистов Major Beauty в российских журналах.</p></div>
+      <div class="press__grid">
+        <article class="press-card"><div class="press-card__cover"><img src="https://majorbeauty.ru/files/resources/457105bb300d4e0_450x0_notrise.png" alt="Публикация в журнале Женское здоровье" /></div><h3>Публикация Полины Соболевой в журнале «Женское здоровье»</h3></article>
+        <article class="press-card"><div class="press-card__cover"><img src="https://majorbeauty.ru/files/resources/eaca40475968377_450x0_notrise.png" alt="Публикация в журнале Красота и здоровье" /></div><h3>Публикация Заура Бытдаева в журнале «Красота и здоровье»</h3></article>
+        <article class="press-card"><div class="press-card__cover"><img src="https://majorbeauty.ru/files/resources/7407a9d041ee148_450x0_notrise.png" alt="Публикация в журнале Beauty Day" /></div><h3>Публикация Александра Дудника в журнале Beauty Day</h3></article>
+        <article class="press-card"><div class="press-card__cover"><img src="https://majorbeauty.ru/files/resources/89adbf85cd873dc_450x0_notrise.png" alt="Публикация в журнале Беременность и роды" /></div><h3>Публикация Заура Бытдаева в журнале «Беременность и роды»</h3></article>
       </div>
     </div>
   </section>
