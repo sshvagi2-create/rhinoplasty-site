@@ -62,6 +62,34 @@
     .operation__label { margin:0 0 9px; color:#876360; font-size:11px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; }
     .operation__value { margin:0; max-width:390px; font:400 clamp(19px,2vw,26px)/1.25 Prata,Georgia,serif; letter-spacing:-.025em; }
     .operation__value strong { color:var(--deep-rose); font-weight:400; }
+    .licenses { padding:116px 24px 126px; background:#f1e9e6; }
+    .licenses__inner { width:min(1200px,100%); margin:0 auto; }
+    .licenses__title { margin:0 0 44px; font:400 56px/1.06 Prata,Georgia,serif; letter-spacing:-.045em; }
+    .licenses__grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
+    .license { min-width:0; }
+    .license__paper { width:100%; aspect-ratio:1 / 1.28; padding:clamp(14px,1.8vw,22px); display:grid; place-items:center; border:0; border-radius:4px; background:#fff; box-shadow:0 10px 28px rgba(88,55,51,.07); cursor:zoom-in; transition:transform .25s,box-shadow .25s; }
+    .license__paper:hover { transform:translateY(-4px); box-shadow:0 18px 35px rgba(88,55,51,.12); }
+    .license__paper:focus-visible { outline:2px solid var(--deep-rose); outline-offset:4px; }
+    .license__document { width:auto; height:100%; max-width:100%; aspect-ratio:1 / 1.414; position:relative; overflow:hidden; padding:clamp(15px,2vw,28px) clamp(12px,1.65vw,23px); background:linear-gradient(135deg,#fffef9,#f6f0e8); border:1px solid #e9dcd6; color:#957a73; }
+    .license__document::after { content:""; position:absolute; inset:0; background:repeating-linear-gradient(0deg,transparent 0 15px,rgba(153,120,112,.12) 15px 16px); opacity:.54; pointer-events:none; }
+    .license__emblem, .license__seal, .license__qr, .license__stamp { position:relative; z-index:1; }
+    .license__emblem { width:45px; height:45px; margin:0 auto 24px; display:grid; place-items:center; border:1px solid #b99077; border-radius:50%; font:19px/1 Prata,serif; color:#ab7d63; }
+    .license__doc-title { position:relative; z-index:1; margin:0; text-align:center; font:400 22px/1.2 Prata,serif; color:#795d57; }
+    .license__doc-subtitle { position:relative; z-index:1; margin:12px auto 0; max-width:155px; text-align:center; font-size:8px; line-height:1.5; letter-spacing:.08em; text-transform:uppercase; }
+    .license__seal { position:absolute; z-index:2; right:20px; bottom:22px; width:50px; height:50px; border:2px double #b99077; border-radius:50%; opacity:.8; }
+    .license__qr { width:38px; height:38px; background:repeating-conic-gradient(#755b57 0 25%,#fff 0 50%) 50%/8px 8px; }
+    .license__compact { padding:19px; display:flex; flex-direction:column; align-items:center; }
+    .license__compact .license__qr { align-self:flex-start; margin-bottom:24px; }
+    .license__compact .license__doc-title { font-size:16px; }
+    .license__compact .license__doc-subtitle { max-width:none; text-align:left; font-size:7px; }
+    .license__stamp { margin-top:auto; width:84px; height:30px; border:1px solid #a98475; opacity:.7; }
+    .license__name { margin:18px 2px 0; font-size:14px; line-height:1.46; }
+    .license-modal { position:fixed; z-index:10; inset:0; display:none; align-items:center; justify-content:center; padding:30px; background:rgba(34,23,22,.72); backdrop-filter:blur(7px); }
+    .license-modal.is-open { display:flex; }
+    .license-modal__dialog { width:min(680px,100%); max-height:calc(100svh - 60px); position:relative; display:grid; place-items:center; }
+    .license-modal__close { position:absolute; z-index:2; top:0; right:0; width:42px; height:42px; display:grid; place-items:center; border:0; border-radius:50%; background:#fff; color:var(--ink); font-size:25px; cursor:pointer; transform:translate(15px,-15px); }
+    .license-modal__paper { height:min(calc(100svh - 76px),850px); max-width:100%; padding:clamp(15px,2.5vw,30px); display:grid; place-items:center; background:#fff; box-shadow:0 22px 60px rgba(0,0,0,.28); }
+    .license-modal__paper .license__document { height:100%; max-width:100%; }
     @media (max-width:900px) {
       .hero { min-height:auto; }
       .hero__image { inset:0; opacity:.25; background-position:64% center; }
@@ -94,6 +122,17 @@
       .operation__icon { flex-basis:58px; width:58px; height:58px; }
       .operation__icon svg { width:26px; height:26px; }
       .operation__number { top:15px; right:17px; }
+      .licenses { padding:72px 20px 78px; }
+      .licenses__title { margin-bottom:28px; font-size:38px; }
+      .licenses__grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+      .license__paper { padding:13px; }
+      .license__document { padding:17px 12px; }
+      .license__doc-title { font-size:16px; }
+      .license__name { margin-top:12px; font-size:12px; }
+      .license-modal { padding:18px; }
+      .license-modal__dialog { max-height:calc(100svh - 36px); }
+      .license-modal__paper { height:calc(100svh - 58px); padding:12px; }
+      .license-modal__close { transform:translate(7px,-7px); }
     }
   </style>
 </head>
@@ -163,5 +202,45 @@
       </div>
     </div>
   </section>
+  <section class="licenses" aria-labelledby="licenses-title">
+    <div class="licenses__inner">
+      <h2 class="licenses__title" id="licenses-title">Лицензии и сертификаты</h2>
+      <div class="licenses__grid">
+        <article class="license">
+          <button class="license__paper" type="button" aria-label="Открыть сертификат качества"><div class="license__document"><div class="license__emblem">M</div><p class="license__doc-title">Сертификат<br>качества</p><p class="license__doc-subtitle">Подтверждение соответствия высоким стандартам медицинской помощи</p><span class="license__seal"></span></div></button>
+          <p class="license__name">Международный сертификат качества клиники</p>
+        </article>
+        <article class="license">
+          <button class="license__paper" type="button" aria-label="Открыть диплом"><div class="license__document"><div class="license__emblem">M</div><p class="license__doc-title">Диплом</p><p class="license__doc-subtitle">Лауреат профессиональной премии в области эстетической медицины</p><span class="license__seal"></span></div></button>
+          <p class="license__name">Премия за высокий уровень медицинского сервиса</p>
+        </article>
+        <article class="license">
+          <button class="license__paper" type="button" aria-label="Открыть лицензию"><div class="license__document license__compact"><span class="license__qr"></span><p class="license__doc-title">Выписка<br>из реестра</p><p class="license__doc-subtitle">Лицензия на осуществление медицинской деятельности</p><span class="license__stamp"></span></div></button>
+          <p class="license__name">Лицензия на медицинскую деятельность № Л041-01137-77/00323180</p>
+        </article>
+        <article class="license">
+          <button class="license__paper" type="button" aria-label="Открыть приложение к лицензии"><div class="license__document license__compact"><span class="license__qr"></span><p class="license__doc-title">Приложение<br>к лицензии</p><p class="license__doc-subtitle">Перечень разрешённых видов медицинской деятельности</p><span class="license__stamp"></span></div></button>
+          <p class="license__name">Лицензия на медицинскую деятельность — приложение</p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <div class="license-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Просмотр документа">
+    <div class="license-modal__dialog">
+      <button class="license-modal__close" type="button" aria-label="Закрыть просмотр">×</button>
+      <div class="license-modal__paper"></div>
+    </div>
+  </div>
+  <script>
+    const modal = document.querySelector('.license-modal');
+    const modalPaper = modal.querySelector('.license-modal__paper');
+    const closeModal = () => { modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true'); modalPaper.innerHTML = ''; };
+    document.querySelectorAll('.license__paper').forEach((card) => card.addEventListener('click', () => {
+      modalPaper.innerHTML = card.querySelector('.license__document').outerHTML;
+      modal.classList.add('is-open'); modal.setAttribute('aria-hidden', 'false');
+    }));
+    modal.addEventListener('click', (event) => { if (event.target === modal || event.target.closest('.license-modal__close')) closeModal(); });
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeModal(); });
+  </script>
 </body>
 </html>
