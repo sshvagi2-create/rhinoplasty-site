@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ринопластика и риносептопластика — Major Beauty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Prata&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink:#342b2a; --rose:#b06c6a; --deep-rose:#8c4d4d; --milk:#f8f4f1; --line:rgba(65,43,42,.16); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; min-width:320px; color:var(--ink); font-family:Manrope,Arial,sans-serif; background:var(--milk); }
+    .hero { min-height:100svh; position:relative; overflow:hidden; display:flex; flex-direction:column; background:#f4eae8; }
+    .hero::before { content:""; position:absolute; inset:0 0 0 46%; background:linear-gradient(90deg,rgba(244,234,232,.04),rgba(244,234,232,0) 45%); z-index:1; pointer-events:none; }
+    .hero__image { position:absolute; inset:0 0 0 45%; background:url('assets/rhinoplasty-hero.png') center center/cover no-repeat; }
+    .hero__image::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,#f4eae8 0%,rgba(244,234,232,.12) 31%,rgba(255,255,255,0) 65%); }
+    .header, .hero__body, .facts { position:relative; z-index:2; width:min(1380px,100%); margin:0 auto; padding-left:clamp(24px,5vw,82px); padding-right:clamp(24px,5vw,82px); }
+    .header { min-height:104px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); }
+    .brand { display:flex; align-items:center; gap:12px; color:var(--ink); text-decoration:none; }
+    .brand__sign { display:grid; place-items:center; width:36px; height:36px; border:1px solid var(--rose); border-radius:50%; color:var(--rose); font:18px/1 Prata,serif; }
+    .brand__name { font:500 18px/1 Prata,serif; letter-spacing:.08em; text-transform:uppercase; }
+    .brand__sub { display:block; margin-top:3px; color:#8e7775; font-size:8px; font-weight:700; letter-spacing:.21em; text-transform:uppercase; }
+    .header__right { display:flex; align-items:center; gap:clamp(20px,4vw,70px); }
+    .address { max-width:200px; color:#755e5d; font-size:12px; line-height:1.42; }
+    .phone { color:var(--ink); font-weight:700; font-size:15px; text-decoration:none; white-space:nowrap; }
+    .hero__body { flex:1; display:flex; align-items:center; padding-top:42px; padding-bottom:36px; }
+    .content { width:min(690px,56%); }
+    .eyebrow { display:flex; align-items:center; gap:9px; color:var(--deep-rose); font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+    .eyebrow::before { content:""; width:28px; height:1px; background:currentColor; }
+    h1 { margin:19px 0 20px; max-width:650px; font:400 clamp(39px,4.25vw,68px)/1.08 Prata,Georgia,serif; letter-spacing:-.04em; }
+    .lead { max-width:540px; margin:0; color:#5c4645; font-size:16px; line-height:1.55; }
+    .offer { margin-top:30px; display:flex; align-items:flex-end; gap:19px; }
+    .price { font:400 34px/1 Prata,Georgia,serif; color:var(--deep-rose); white-space:nowrap; }
+    .price span { display:block; margin:7px 0 0; color:#986e6c; font:500 11px/1.35 Manrope,sans-serif; }
+    .offer__line { height:43px; width:1px; background:var(--line); }
+    .offer__note { max-width:215px; padding-bottom:2px; color:#725b59; font-size:12px; line-height:1.42; }
+    .consultation { margin-top:31px; width:min(540px,100%); padding:20px 21px 19px; border:1px solid rgba(176,108,106,.28); background:rgba(255,250,248,.68); backdrop-filter:blur(5px); }
+    .consultation__title { margin:0 0 7px; font-size:15px; font-weight:700; }
+    .consultation__text { max-width:485px; margin:0 0 15px; color:#6a5452; font-size:12px; line-height:1.48; }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 24px; border:0; border-radius:0; color:#fff; background:var(--deep-rose); font:700 13px Manrope,Arial,sans-serif; text-decoration:none; cursor:pointer; transition:background .2s,transform .2s; }
+    .button:hover { background:#713b3b; transform:translateY(-2px); }
+    .button::after { content:"→"; margin-left:14px; font-size:18px; font-weight:400; }
+    .facts { display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--line); }
+    .fact { padding:19px 27px 20px 0; border-right:1px solid var(--line); }
+    .fact + .fact { padding-left:27px; }
+    .fact:last-child { border:0; }
+    .fact b { display:block; margin-bottom:5px; font:400 21px/1 Prata,Georgia,serif; color:var(--deep-rose); }
+    .fact span { color:#6c5654; font-size:11px; line-height:1.35; }
+    .operation { padding:112px 24px 120px; background:#f8f4f1; }
+    .operation__inner { width:min(1200px,100%); margin:0 auto; }
+    .operation__head { display:flex; align-items:end; justify-content:space-between; gap:32px; margin-bottom:38px; }
+    .operation__title { max-width:610px; margin:0; font:400 clamp(34px,4vw,54px)/1.08 Prata,Georgia,serif; letter-spacing:-.04em; }
+    .operation__intro { max-width:290px; margin:0 0 5px; color:#806b68; font-size:13px; line-height:1.5; }
+    .operation__grid { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+    .operation__card { min-height:190px; position:relative; display:flex; align-items:center; gap:27px; padding:31px 34px; overflow:hidden; background:#fff; border:1px solid rgba(176,108,106,.13); transition:transform .25s,box-shadow .25s; }
+    .operation__card:hover { transform:translateY(-4px); box-shadow:0 16px 34px rgba(89,57,54,.08); }
+    .operation__number { position:absolute; top:22px; right:26px; color:#d6c9c4; font:400 13px Prata,serif; }
+    .operation__icon { flex:0 0 72px; width:72px; height:72px; display:grid; place-items:center; color:var(--deep-rose); border-radius:50%; background:#f7edeb; }
+    .operation__icon svg { width:31px; height:31px; fill:none; stroke:currentColor; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+    .operation__label { margin:0 0 9px; color:#876360; font-size:11px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; }
+    .operation__value { margin:0; max-width:390px; font:400 clamp(19px,2vw,26px)/1.25 Prata,Georgia,serif; letter-spacing:-.025em; }
+    .operation__value strong { color:var(--deep-rose); font-weight:400; }
+    @media (max-width:900px) {
+      .hero { min-height:auto; }
+      .hero__image { inset:0; opacity:.25; background-position:64% center; }
+      .hero::before { display:none; }
+      .hero__image::after { background:rgba(244,234,232,.46); }
+      .content { width:min(680px,100%); }
+      .header { min-height:82px; }
+      .header__right { gap:18px; }
+      .address { display:none; }
+      .hero__body { min-height:630px; padding-top:65px; }
+    }
+    @media (max-width:580px) {
+      .brand__name { font-size:14px; }
+      .brand__sign { width:31px; height:31px; font-size:15px; }
+      .phone { font-size:12px; }
+      .hero__body { min-height:0; padding-top:54px; padding-bottom:36px; }
+      h1 { font-size:38px; }
+      .lead { font-size:14px; }
+      .offer { gap:14px; }
+      .price { font-size:29px; }
+      .consultation { padding:17px; }
+      .facts { grid-template-columns:1fr; padding-top:3px; padding-bottom:10px; }
+      .fact, .fact + .fact { padding:12px 0; border-right:0; border-bottom:1px solid var(--line); }
+      .fact:last-child { border-bottom:0; }
+      .operation { padding:72px 20px 78px; }
+      .operation__head { display:block; margin-bottom:27px; }
+      .operation__intro { margin:15px 0 0; }
+      .operation__grid { grid-template-columns:1fr; gap:10px; }
+      .operation__card { min-height:148px; gap:18px; padding:24px 20px; }
+      .operation__icon { flex-basis:58px; width:58px; height:58px; }
+      .operation__icon svg { width:26px; height:26px; }
+      .operation__number { top:15px; right:17px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="hero">
+    <div class="hero__image" aria-hidden="true"></div>
+    <header class="header">
+      <a class="brand" href="#top" aria-label="Major Beauty">
+        <span class="brand__sign">M</span>
+        <span class="brand__name">Major Beauty<span class="brand__sub">Клиника эстетической медицины</span></span>
+      </a>
+      <div class="header__right">
+        <div class="address">Москва, Нахимовский проспект, 56<br>Пн–Вс: 08:00–21:00</div>
+        <a class="phone" href="tel:+74952329510">+7 (495) 232-95-10</a>
+      </div>
+    </header>
+    <section class="hero__body" id="top">
+      <div class="content">
+        <div class="eyebrow">Пластическая хирургия</div>
+        <h1>Ринопластика и риносептопластика в Москве</h1>
+        <p class="lead">Изменим форму носа, восстановим дыхание или решим обе задачи за одну операцию.</p>
+        <div class="offer">
+          <div class="price">от 200 000 ₽<span>стоимость операции</span></div>
+          <div class="offer__line"></div>
+          <div class="offer__note">Со следующего месяца повышение цен</div>
+        </div>
+        <div class="consultation">
+          <p class="consultation__title">Бесплатная консультация профессионального хирурга</p>
+          <p class="consultation__text">Пройдёте осмотр носа и оценку анатомических особенностей, смоделируете возможный результат, получите индивидуальный план подготовки и расчёт стоимости операции.</p>
+          <a class="button" href="tel:+74952329510">Записаться</a>
+        </div>
+      </div>
+    </section>
+    <section class="facts" aria-label="Преимущества клиники">
+      <div class="fact"><b>20 лет</b><span>средний опыт хирургов</span></div>
+      <div class="fact"><b>15+ лет</b><span>работаем в эстетической медицине</span></div>
+      <div class="fact"><b>Лицензии</b><span>все необходимые сертификаты и разрешения</span></div>
+    </section>
+  </main>
+  <section class="operation" aria-labelledby="operation-title">
+    <div class="operation__inner">
+      <div class="operation__head">
+        <h2 class="operation__title" id="operation-title">Об операции</h2>
+        <p class="operation__intro">Важные детали, чтобы вы могли спокойно спланировать восстановление.</p>
+      </div>
+      <div class="operation__grid">
+        <article class="operation__card">
+          <span class="operation__number">01</span>
+          <div class="operation__icon"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="M16 9v7l4 3M23.5 10.5l2-2M24 15h3"/></svg></div>
+          <div><p class="operation__label">Длительность</p><p class="operation__value"><strong>2–3 часа</strong> в зависимости от вида операции</p></div>
+        </article>
+        <article class="operation__card">
+          <span class="operation__number">02</span>
+          <div class="operation__icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M11 6h10v8H11zM13 14v6h6v-6M12 20h8v6H12zM8 8H6v7a5 5 0 0 0 5 5h1M24 8h2v7a5 5 0 0 1-5 5h-1"/><path d="M16 10v2M9 24h14"/></svg></div>
+          <div><p class="operation__label">Анестезия</p><p class="operation__value"><strong>Общая</strong> анестезия под контролем анестезиолога</p></div>
+        </article>
+        <article class="operation__card">
+          <span class="operation__number">03</span>
+          <div class="operation__icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 20h18M9 20V9h14v11M12 9V6h8v3M12 24h8M10 20v4M22 20v4"/><path d="M5 14h4M23 14h4"/></svg></div>
+          <div><p class="operation__label">Стационар</p><p class="operation__value"><strong>1 сутки</strong> под наблюдением медицинской команды</p></div>
+        </article>
+        <article class="operation__card">
+          <span class="operation__number">04</span>
+          <div class="operation__icon"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="7" width="20" height="19" rx="2"/><path d="M10 4v6M22 4v6M6 13h20M12 18h.01M16 18h.01M20 18h.01M12 22h.01M16 22h.01"/></svg></div>
+          <div><p class="operation__label">Реабилитация</p><p class="operation__value">До <strong>3 месяцев</strong> до финального результата</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
